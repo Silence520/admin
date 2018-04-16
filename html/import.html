@@ -24,10 +24,10 @@
             <h2 class="title"></h2>
             <div class="margintop">
                 <div class="list-group">
-                  <a href="home.html"><i class="icon-search"></i></a>
-                  <a href="import.html" class="active"><i class="icon-import"></i></a>
-                  <a href="export.html"><i class="icon-export"></i></a>
-              </div>
+                    <a href="home.html"><i class="icon-search"></i></a>
+                    <a href="import.html" class="active"><i class="icon-import"></i></a>
+                    <a href="export.html"><i class="icon-export"></i></a>
+                </div>
             </div>
         </div>
         <div class="Iright text-center">
@@ -38,45 +38,42 @@
             <div class="Icontent">
                 <div class="row fromgroup">
                     <div class="col-md-6 col-md-offset-3 ">
-                                    <div class="form-group">
-                                      <label for="inputEmail3" class="col-sm-3 control-label">导入文件</label>
-                                      <div class="col-sm-9">
-                                              <div  class="col-sm-9 nomar">
-                                                    <input type="text" class="form-control" maxlength="16" id="AddName" placeholder="导入文件">
-                                              </div>
-                                              <div  class="col-sm-3 choosebtn">
-                                                   <span class="form-control btn btn-primary" >选择文件</span>
-                                                   <input type="file" id="addFile" placeholder="选择文件" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" / >
-                                              </div>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-3 control-label">设置渠道</label>
-                                                <div class="col-sm-9">
-                                                            <select class="form-control" id="channel1">
-                                                              <option value="">请选择</option>
-                                                            </select>
-                                                </div>
-                                    </div>
-                                      <div class="form-group">
-                                                 <label for="inputEmail3" class="col-sm-3 control-label">文件模板</label>
-                                                 <div class="col-sm-9 line-height">
-                                                     <a href=" http://qiniu.shbaoyuantech.com/shichangimport.xlsx">点击下载毛名单表格模板</a>
-                                                 </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                                        <p class="text-center col-sm-12">
-                                                                <button type="button" class="btn btn-primary BtnConfirm">确认导入</button>
-                                                        </p>
-                                    </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">导入文件</label>
+                            <div class="col-sm-9">
+                                <div class="col-sm-9 nomar">
+                                    <input type="text" class="form-control" maxlength="16" id="AddName" placeholder="导入文件">
+                                </div>
+                                <div class="col-sm-3 choosebtn">
+                                    <span class="form-control btn btn-primary">选择文件</span>
+                                    <input type="file" id="addFile" placeholder="选择文件" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">设置渠道</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="channel1">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">文件模板</label>
+                            <div class="col-sm-9 line-height">
+                                <a href=" http://qiniu.shbaoyuantech.com/shichangimport.xlsx">点击下载毛名单表格模板</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center col-sm-12">
+                                <button type="button" class="btn btn-primary BtnConfirm">确认导入</button>
+                            </p>
+                        </div>
                     </div>
-                </div>   
+                </div>
             </div>
-         
         </div>
     </div>
- 
     <script src="../lib/jquery-1.12.4.min.js"></script>
     <script src="../lib/js/bootstrap.min.js"></script>
     <script src="../lib/app.js"></script>
@@ -85,13 +82,11 @@
 
 </html>
 <script>
-$(function(){
-        //上传文件
-        $(document).on('change','#addFile',function(){
-          $('#AddName').val($(this).val());
-        });
+$(function() {
+    //上传文件
+    $(document).on('change', '#addFile', function() {
+        $('#AddName').val($(this).val());
+    });
 
 })
 </script>
-
-
