@@ -2,7 +2,7 @@ $(function() {
     function loadData() {
         this.data = {
             Id: app.getParameterByName('NO'),
-            pageIndex: hash ? hash : 1,
+            pageIndex: 1,
             everyPage: 10,
         };
         this.init();
@@ -25,6 +25,61 @@ $(function() {
 
         })
 
+
+        //获取省份
+        function getprovince(){
+            app.posttoken(app.url.api_base + "selections/staffs", {},
+                    function(req) {
+                        if (req.code == 0) {
+                            var data = req.data.staffs;
+                            if (data.length > 0) {
+                                var html = '<option value="">请选择</option>';
+                                $.each(data, function(i, v) {
+                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                });
+                                $('#province').html(html);
+                            }
+                        } else {
+                            Prompt.show(req.message);
+                        }
+                    });
+        }
+         //获取城市
+        function getprovince(){
+            app.posttoken(app.url.api_base + "selections/staffs", {},
+                    function(req) {
+                        if (req.code == 0) {
+                            var data = req.data.staffs;
+                            if (data.length > 0) {
+                                var html = '<option value="">请选择</option>';
+                                $.each(data, function(i, v) {
+                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                });
+                                $('#province').html(html);
+                            }
+                        } else {
+                            Prompt.show(req.message);
+                        }
+                    });
+        }
+
+           function getprovince(){
+            app.posttoken(app.url.api_base + "selections/staffs", {},
+                    function(req) {
+                        if (req.code == 0) {
+                            var data = req.data.staffs;
+                            if (data.length > 0) {
+                                var html = '<option value="">请选择</option>';
+                                $.each(data, function(i, v) {
+                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                });
+                                $('#province').html(html);
+                            }
+                        } else {
+                            Prompt.show(req.message);
+                        }
+                    });
+        }
 
         //获取数据 
         function laadData() {
