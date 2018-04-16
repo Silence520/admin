@@ -1,0 +1,242 @@
+.icontent {
+    zoom:1;
+    min-width:1280px;
+    background: rgb(240, 242, 245);
+}
+a{ text-decoration: underline; }
+
+.icontent:after {
+    display:block;
+    visibility:hidden;
+    clear:both;
+    height:0;
+    content:'';
+}
+
+.Ileft {
+    float:left;
+    width:80px;
+    background: rgb(0, 21, 41);
+    padding-bottom: 3000px;
+    margin-bottom:-3000px;
+    overflow: hidden;
+}
+
+.Ileft .title {
+    height:64px;
+    margin:0;
+    background:url('../images/logo1.jpg') no-repeat;
+    background-position:center;
+    background-size:100%;
+}
+
+
+.Ileft .margintop {
+    text-align: center;
+}
+
+.Ileft .margintop a{
+    padding: 10px 25px 10px;
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px solid #255d8c;
+}
+
+.Ileft .margintop a.active{
+     background:rgb(0, 33, 64)
+}
+
+.Iright {
+    margin-left:80px;
+}
+
+.Irtop {
+    position:relative;
+    padding-right:30px;
+    height: 64px;
+    box-shadow: rgba(0, 21, 41, 0.08) 0px 1px 4px;
+    position: relative;
+    padding: 0px 12px 0px 0px;
+    background: rgb(255, 255, 255)
+}
+.Irtop h2{
+        margin: 0;
+        text-align: left;
+        line-height: 64px;
+        font-size: 26px;
+        padding-left: 20px;
+}
+
+.Irtop ul{
+    height: 30px;
+    margin-top: 20px;
+}
+.Irtop ul li{
+    height: 30px;
+    line-height: 30px;
+}
+.Irtop .comTime{
+        color: #fff;
+        margin-top: -4px;
+        cursor: pointer;
+}
+.glyphicon{
+    margin-right: 4px;
+}
+
+.Irtop ul li {
+    color:#fff;
+}
+
+.icon-search{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/search (1).png') no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.icon-import{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/import.png') no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.icon-export{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/export.png') no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+/**import**/
+.btn-primary{
+        background-color: rgb(24, 144, 255);
+        border: rgb(24, 144, 255);
+}
+.choosebtn{
+    position: relative;
+    overflow: hidden;
+}
+.choosebtn #addFile{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0;
+    cursor: pointer;
+}
+.fromgroup{
+    background: #fff;
+    margin-top: 20px;
+    height: auto;
+    overflow: hidden;
+    padding: 20px  30px 30px;
+}
+.form-group{
+    overflow: hidden;
+    padding-bottom: 0px;
+}
+.nomar{
+    padding-left: 0px;
+}
+.form-group .control-label,
+.line-height{
+    height: 30px;
+    line-height: 30px;
+}
+
+
+/**export**/
+.Icontent{
+    background: #fff;
+    margin-top: 20px;
+}
+.table th{
+    text-align: center;
+}
+.add-more-data{
+    margin-top: 20px;
+    text-decoration: underline;
+    color:#337ab7;
+    cursor: pointer;
+}
+
+
+.expoerdetail-box .active{
+    background-color: rgb(24, 144, 255);
+    border: rgb(24, 144, 255);
+}
+
+.expoerdetail-box span{
+    position: relative;
+}
+.expoerdetail-box i{
+    position: absolute;
+    right: 15px;
+    font-style: normal;
+}
+
+/* home */
+.homebox{
+    background: #fff;
+}
+.searchbox{
+    padding: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    background: #fff;
+}
+
+.searchbox .col-md-2{
+    margin-top: 3px;
+    padding-left: 0px;
+}
+.searchbox .col-md-4,
+.searchbox .col-md-1,
+.searchbox .col-md-4 h4{
+    text-align: left;
+    line-height: 40px;
+}
+
+.table tr th{
+    background: #fff;
+}
+.table tbody tr td{
+    padding-bottom: 4px;
+}
+/* maillist */
+.maillistcontent{
+    background: #fff;
+}
+
+/* 表格 */
+.tablebox-200{
+    width: 100%;
+    overflow-x: auto;
+}
+.tablebox-200 .table{
+    width: 200%;
+    max-width: 200%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
