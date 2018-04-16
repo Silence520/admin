@@ -1,5 +1,10 @@
 $(function() {
     function loadData() {
+        this.data = {
+            Id:app.getParameterByName('NO'),
+            pageIndex:hash?hash:1,
+            everyPage: 10,
+        };
         this.init();
     }
 

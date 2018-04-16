@@ -1,5 +1,10 @@
 $(function() {
     function loadData() {
+        this.data = {
+            Id:app.getParameterByName('NO'),
+            pageIndex:hash?hash:1,
+            everyPage: 10,
+        };
         this.init();
     }
 
@@ -11,6 +16,11 @@ $(function() {
 
 
            })
+
+           //返回
+            $(document).on('click','.backup',function(){
+              window.history.back()
+             })
 
             //下载数据
            $(document).on('click','.downloadData',function(){
@@ -25,14 +35,16 @@ $(function() {
     	//获取数据 
     	function laadData(){
 
-    		html+='<tr>';
-    		html+='<td> <input type="checkbox" ></td>';
-    		html+='<td>资源查询2018-04-14</td>';
-    		html+='<td>资源查询</td>';
-    		html+='<td>成功</td>';
-    		html+='<td>2018-04-23 22:30:00</td>';
-    		html+='<td><button type="button" class="btn btn-default downloadData">下载</button></td>';
-    		html+='</tr>';
+    	            // html+='<tr>';
+                 //        html+='<td>1</td>';
+                 //        html+='<td>东城区</td>';
+                 //        html+='<td>上海市浦东新区</td>';
+                 //        html+='<td>4000</td>';
+                 //        html+='<td>29:30</td>';
+                 //        html+='<td>188</td>';
+                 //        html+='<td>18888</td>';
+                 //        html+='<td>¥ 123，32434</td>';
+                 //        html+='</tr>';
     	}	
     };
 
