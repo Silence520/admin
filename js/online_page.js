@@ -16,15 +16,6 @@ $(function() {
             window.history.back()
         })
 
-        //下载数据
-        $(document).on('click', '.downloadData', function() {})
-
-        //mode loaddata
-        $(document).on('click', '.add-more-data', function() {
-
-        })
-
-
         //获取数据 
         function laadData() {
              // onlineResult
@@ -47,9 +38,10 @@ $(function() {
                                html+='</tr>';
                         })
                         $('.table>tbody').html(html)
-              });
-            
+              });   
         }
+
+
     };
 
     new loadData();

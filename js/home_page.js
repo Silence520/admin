@@ -101,23 +101,32 @@ $(function() {
                         });
              }
 
-            //获取数据 
-            function laadData() {
 
-                // html+='<tr>';
-                // html+='<td> <input type="checkbox" ></td>';
-                // html+='<td>1</td>';
-                // html+='<td>北京市</td>';
-                // html+='<td>北京航空大学</td>';
-                // html+='<td><a href="maillist.html">3</a></td>';
-                // html+='<td><a href="campuslist.html">3</a></td>';
-                // html+='<td><a href="online.html">3</a></td>';
-                // html+='<td>¥ 155.934.34</td>';
-                // html+='<td><a href="offlineresources.html">2330</a></td>';
-                // html+='<td>¥ 155.934.34</td>';
-                // html+='<td>已开拓</td>';
-                // html+='</tr>';
-            }
+             //获取数据 
+             function laadData() {
+                  // onlineResult
+                 app.posttoken(app.url.api_base + "schools/main/summResult", {},
+                        function(req) {
+                             var data=JSON.parse(req)
+                             var html='';
+                             $.each(data,function(i,v){
+                                           html+='<tr>';
+                                           html+='<td> <input type="checkbox" ></td>';
+                                           html+='<td>'+(i+1)+'</td>';
+                                           html+='<td>'+v.area+'</td>';
+                                           html+='<td>'+v.schoolname+'</td>';
+                                           html+='<td><a href="maillist.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                           html+='<td><a href="campuslist.html?NO='+v.id+'">'+v.schoolgroup+'</a></td>';
+                                           html+='<td><a href="online.html?NO='+v.id+'">'+v.onlinecount+'</a></td>';
+                                           html+='<td>¥ '+v.onlineperiodicalprice+'</td>';
+                                           html+='<td><a href="offlineresources.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                           html+='<td>¥ '+v.offlineperiodicalprice+'</td>';
+                                           html+='<td>'+v.createtype+'</td>';
+                                           html+='</tr>';
+                             })
+                             $('.table>tbody').html(html)
+                   });   
+             }
         };
 
     new loadData();
