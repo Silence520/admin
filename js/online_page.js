@@ -27,19 +27,28 @@ $(function() {
 
         //获取数据 
         function laadData() {
-
-            // html='<tr>';
-            //        html='<td>1</td>';
-            //        html='<td><a href="advertisement.html">约定圈</a></td>';
-            //        html='<td>app</td>';
-            //        html='<td>1234</td>';
-            //        html='<td>1888</td>';
-            //        html='<td>是</td>';
-            //        html='<td>1888</td>';
-            //        html='<td>423</td>';
-            //        html='<td>423</td>';
-            //        html='<td>页阅读数上线</td>';
-            //        html='</tr>';
+             // onlineResult
+            app.posttoken(app.url.api_base + "schools/main/onlineResult", {},
+                   function(req) {
+                        var data=JSON.parse(req)
+                        var html='';
+                        $.each(data,function(i,v){
+                               html+='<tr>';
+                               html+='<td>'+(i+1)+'</td>';
+                               html+='<td><a href="advertisement.html?NO='+v.id+'">'+v.channelName+'</a></td>';
+                               html+='<td>'+v.channelType+'</td>';
+                               html+='<td>'+v.fans+'</td>';
+                               html+='<td>'+v.daily+'</td>';
+                               html+='<td>'+v.isofficial+'</td>';
+                               html+='<td>'+v.periodicalprice+'</td>';
+                               html+='<td>'+v.to4A+'</td>';
+                               html+='<td>'+v.toguest+'</td>';
+                               html+='<td>'+v.remarks+'</td>';
+                               html+='</tr>';
+                        })
+                        $('.table>tbody').html(html)
+              });
+            
         }
     };
 

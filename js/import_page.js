@@ -13,7 +13,6 @@ $(function() {
 
 
         //确认导入
-        // alert('ok')
         $(document).on('click', '.BtnConfirm', function() {
             var addFile = document.getElementById('addFile').files[0];
             // var first = $('#channel1').val();

@@ -27,7 +27,7 @@ $(function() {
 
         //获取数据 
         function laadData() {
-
+            // memberListJsonResult
             // html+='<tr>';
             //        html+='<td>1</td>';
             //        html+='<td>北京航空</td>';
