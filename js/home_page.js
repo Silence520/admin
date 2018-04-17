@@ -163,11 +163,24 @@ $(function() {
                                            html+='<td>'+(i+1)+'</td>';
                                            html+='<td>'+v.area+'</td>';
                                            html+='<td>'+v.schoolname+'</td>';
-                                           html+='<td><a href="maillist.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                           if (v.offlinetoguest>0) {
+                                                html+='<td><a href="maillist.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                            }else{
+                                                html+='<td>'+v.offlinetoguest+'</td>';
+                                            }
                                            html+='<td><a href="campuslist.html?NO='+v.id+'">'+v.schoolgroup+'</a></td>';
-                                           html+='<td><a href="online.html?NO='+v.id+'">'+v.onlinecount+'</a></td>';
+                                           if(v.onlinecount>0){
+                                                html+='<td><a href="online.html?NO='+v.id+'">'+v.onlinecount+'</a></td>';
+                                           }else{
+                                                html+='<td>'+v.onlinecount+'</td>';
+                                           }
                                            html+='<td>¥ '+v.onlineperiodicalprice+'</td>';
-                                           html+='<td><a href="offlineresources.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                            if(v.offlinetoguest>0){
+                                                html+='<td><a href="offlineresources.html?NO='+v.id+'">'+v.offlinetoguest+'</a></td>';
+                                           }else{
+                                                html+='<td>'+v.offlinetoguest+'</td>';
+                                           }
+                                           
                                            html+='<td>¥ '+v.offlineperiodicalprice+'</td>';
                                            html+='<td>'+v.createtype+'</td>';
                                            html+='</tr>';
