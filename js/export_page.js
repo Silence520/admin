@@ -9,7 +9,7 @@ $(function() {
         //删除选中数据
         $(document).on('click', '#btnDelData', function() {
         })
-        
+
         //下载数据
         $(document).on('click', '.downloadData', function() {})
 
@@ -41,3 +41,4 @@ $(function() {
 
     new loadData();
 });
+

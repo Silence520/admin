@@ -25,7 +25,7 @@ $(function() {
             //     Prompt.show('请选择一级渠道！');
             //     return false;
             // }
-            data.append('uploadedFile', addFile);
+            data.append('file', addFile);
             // http://47.98.161.17:8080/schools/main/importExcel
             // data.append('firstSourceId', first);
             app.postfile(app.url.api_base + "schools/main/importExcel", data, function(req) {
