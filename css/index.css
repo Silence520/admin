@@ -121,9 +121,7 @@ a {
     cursor: pointer;
 }
 
-
 /**import**/
-
 .btn-primary {
     background-color: rgb(24, 144, 255);
     border: rgb(24, 144, 255);
@@ -149,7 +147,7 @@ a {
     margin: 20px 10px;
     height: auto;
     overflow: hidden;
-    padding: 20px 30px 30px;
+    padding: 30px;
 }
 
 .form-group {
@@ -167,7 +165,18 @@ a {
     line-height: 30px;
 }
 
-
+.line-height{
+    text-align: left;
+}
+.meozhu{
+    text-align: left;
+    font-size: 12px;
+    color: red;
+    margin:4px 47px;
+}
+.text-center.col-sm-12{
+    margin-top: 20px;
+}
 
 /**export**/
 
@@ -182,11 +191,13 @@ a {
 
 .add-more-data {
     margin-top: 20px;
-    text-decoration: underline;
-    color: #337ab7;
-    cursor: pointer;
 }
 
+.add-more-data  span{
+     text-decoration: underline;
+     color: #337ab7;
+     cursor: pointer;
+}
 
 .expoerdetail-box .active {
     background-color: rgb(24, 144, 255);
@@ -203,9 +214,7 @@ a {
     font-style: normal;
 }
 
-
 /* home */
-
 .homebox {
     background: #fff;
 }
@@ -237,16 +246,13 @@ a {
     padding-bottom: 4px;
 }
 
-
 /* maillist */
-
 .maillistcontent {
     background: #fff;
 }
 
 
 /* 表格 */
-
 .tablebox-200 {
     width: 100%;
     overflow-x: auto;

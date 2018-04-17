@@ -20,9 +20,9 @@ $(function() {
         function laadData() {
             app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", {},
                    function(req) {
-                        var data=JSON.parse(req)
+                        // var data=JSON.parse(req)
                         var html='';
-                        $.each(data,function(i,v){
+                        $.each(req,function(i,v){
                                    html+='<tr>';
                                    html+='<td>'+(i+1)+'</td>';
                                    html+='<td>'+v.schoolname+'</td>';

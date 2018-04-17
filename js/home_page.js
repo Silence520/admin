@@ -156,9 +156,8 @@ $(function() {
                   // }
                  app.posttoken(app.url.api_base + "schools/main/summResult", {},
                         function(req) {
-                             var data=JSON.parse(req)
                              var html='';
-                             $.each(data,function(i,v){
+                             $.each(req,function(i,v){
                                            html+='<tr>';
                                            html+='<td> <input type="checkbox" ></td>';
                                            html+='<td>'+(i+1)+'</td>';

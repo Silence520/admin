@@ -10,7 +10,7 @@ $(function() {
 
     loadData.prototype.init = function() {
         var _this = this;
-        laadData();
+        // laadData();
         //返回
         $(document).on('click', '.backup', function() {
             window.history.back()
@@ -20,12 +20,12 @@ $(function() {
         function laadData() {
             app.posttoken(app.url.api_base + "schools/main/onlineResult", {},
                    function(req) {
-                        var data=JSON.parse(req)
+                        // var data=JSON.parse(req)
                         var html='';
-                        $.each(data,function(i,v){
+                        $.each(req,function(i,v){
                                     html+='<tr>';
                                     html+='<td>'+(i+1)+'</td>';
-                                    html+='<td>'+v.schoolname+'</td>';
+                                    html+='<td>'+v.school+'</td>';
                                     html+='<td>'+v.schoolarea+'</td>';
                                     html+='<td>4000</td>';
                                     html+='<td>29:30</td>';
