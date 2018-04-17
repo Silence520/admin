@@ -8,10 +8,8 @@ $(function() {
         laadData();
         //删除选中数据
         $(document).on('click', '#btnDelData', function() {
-
-
         })
-
+        
         //下载数据
         $(document).on('click', '.downloadData', function() {})
 
@@ -32,6 +30,12 @@ $(function() {
             // html+='<td>2018-04-23 22:30:00</td>';
             // html+='<td><button type="button" class="btn btn-default downloadData">下载</button></td>';
             // html+='</tr>';
+
+             if(_this.data.pageIndex>1){
+                    $('.table>tbody').append(html)
+             }else{
+                    $('.table>tbody').html(html)
+             }
         }
     };
 

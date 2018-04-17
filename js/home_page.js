@@ -1,7 +1,6 @@
 $(function() {
     function loadData() {
         this.data = {
-            Id: app.getParameterByName('NO'),
             pageIndex: 1,
             everyPage: 10,
             province:'',
@@ -16,14 +15,50 @@ $(function() {
         var _this = this;
         laadData();
         
-        //下载数据
-        $(document).on('click', '.downloadData', function() {})
+         //export-btn
+        $(document).on('click', '.sea-btn', function() {
+            laadData();
+        })
+
+        //export-btn
+        $(document).on('click', '.export-btn', function() {})
 
         //mode loaddata
         $(document).on('click', '.add-more-data', function() {
 
         })
 
+        //省份
+        $(document).on('change', '#province', function() {
+                $('#city option').remove();
+                $('#area option').remove();
+                var num = $('#province').val();
+                _this.data.province=num;
+                _this.data.city='';
+                _this.data.area='';
+                getcity(num)
+        });
+
+         //城市
+        $(document).on('change', '#city', function() {
+                    $('#area option').remove();
+                    var num = $('#city').val();
+                    _this.data.city=num;
+                    _this.data.area='';
+                    getarea(num)
+        });
+
+        //城市
+        $(document).on('change', '#area', function() {
+                    var num = $('#area').val();
+                    _this.data.area=num;
+        });
+
+        //类型
+        $(document).on('change', '#type', function() {
+                    var num = $('#type').val();
+                    _this.data.type=num;
+        });
 
         //获取省份
         function getprovince(){
@@ -45,8 +80,11 @@ $(function() {
              }
 
          //获取城市
-        function getcity(){
-            app.posttoken(app.url.api_base + "selections/staffs", {},
+        function getcity(num){
+            var data = {
+                   'cityCode': num
+            };
+            app.posttoken(app.url.api_base + "selections/staffs", data,
                     function(req) {
                         if (req.code == 0) {
                             var data = req.data.staffs;
@@ -64,21 +102,24 @@ $(function() {
              }
 
              //获取地区
-           function getarea(){
-            app.posttoken(app.url.api_base + "selections/staffs", {},
-                    function(req) {
-                        if (req.code == 0) {
-                            var data = req.data.staffs;
-                            if (data.length > 0) {
-                                var html = '<option value="">请选择</option>';
-                                $.each(data, function(i, v) {
-                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
-                                });
-                                $('#area').html(html);
-                            }
-                        } else {
-                            Prompt.show(req.message);
-                        }
+           function getarea(num){
+             var data = {
+                    'cityCode': num
+             };
+                    app.posttoken(app.url.api_base + "selections/staffs", data,
+                            function(req) {
+                                if (req.code == 0) {
+                                    var data = req.data.staffs;
+                                    if (data.length > 0) {
+                                        var html = '<option value="">请选择</option>';
+                                        $.each(data, function(i, v) {
+                                            html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                        });
+                                        $('#area').html(html);
+                                    }
+                                } else {
+                                    Prompt.show(req.message);
+                                }
                     });
              }
 
@@ -105,6 +146,14 @@ $(function() {
              //获取数据 
              function laadData() {
                   // onlineResult
+                  // var data={
+                  //             _this.data.pageIndex,
+                  //             _this.data.everyPage,
+                  //             _this.data.province,
+                  //             _this.data.city,
+                  //             _this.data.area,
+                  //             _this.data.type,
+                  // }
                  app.posttoken(app.url.api_base + "schools/main/summResult", {},
                         function(req) {
                              var data=JSON.parse(req)
@@ -124,7 +173,11 @@ $(function() {
                                            html+='<td>'+v.createtype+'</td>';
                                            html+='</tr>';
                              })
-                             $('.table>tbody').html(html)
+                             if(_this.data.pageIndex>1){
+                                    $('.table>tbody').append(html)
+                             }else{
+                                    $('.table>tbody').html(html)
+                             }
                    });   
              }
         };
