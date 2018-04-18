@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name=”renderer” content=”webkit”>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../images/index.png">
     <title>后台管理平台</title>
@@ -38,14 +37,14 @@
             </div>
             <div class="Icontent">
                 <div class="row fromgroup">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-md-offset-1">
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">导入文件</label>
+                            <label class="col-sm-2  control-label">导入文件</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9 nomar">
                                     <input type="text" class="form-control" maxlength="16" id="AddName" placeholder="导入文件">
                                 </div>
-                                <div class="col-sm-3 choosebtn">
+                                <div class="col-sm-2 choosebtn">
                                     <span class="form-control btn btn-primary">选择文件</span>
                                     <!-- <input type="file" id="addFile" placeholder="选择文件" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /> -->
                                     <input type="file" id="addFile" placeholder="选择文件"  accept=".xls,.xlsx" />
@@ -53,14 +52,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">文件模板</label>
+                            <label class="col-sm-2 control-label">文件模板</label>
                             <div class="col-sm-9 line-height">
                                 <a href=" ../lib/template.xlsx">点击下载导入表格模板</a>
                             </div>
                         </div>
-                        <p class="meozhu">1. 上传数据大小不能超过2MB，否则会导致服务器过载。</p>
-                        <p class="meozhu">2. 为保证导入数据不要污染原始数据，请务必检查数据源。</p>
+                       
                         <div class="form-group">
+                            <div class="col-sm-9 col-md-offset-2 ">
+                                    <p class="meozhu">1. 上传数据大小不能超过2MB，否则会导致服务器过载。</p>
+                                    <p class="meozhu">2. 为保证导入数据不要污染原始数据，请务必检查数据源。</p>
+                            <div class="col-sm-9">
                             <p class="text-center col-sm-12">
                                 <button type="button" class="btn btn-primary BtnConfirm">确认导入</button>
                             </p>
