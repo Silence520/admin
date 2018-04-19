@@ -31,12 +31,12 @@ $(function() {
                 'pageNo': _this.data.pageIndex,
                 'everyPag': _this.data.everyPage,
             };
-            app.posttoken(app.url.api_base + "schools/main/onlineListJsonResult", data,
+            app.posttoken(app.url.api_base + "schools/main/weiboListJsonResult", data,
                 function(req) {
                     var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
-                            $('.schoolname').html(req.data[0].schoolname+' APP广告点位价目表');
+                            $('.schoolname').html(req.data[0].schoolname+' 微博刊例价表');
                             var html = '';
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
@@ -76,36 +76,6 @@ $(function() {
 
                 });
         }
-
-        //获取数据 
-        // function laadData() {
-
-        //             // html+='<tr>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='</tr>';
-        // }
     };
 
     new loadData();

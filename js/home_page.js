@@ -14,7 +14,7 @@ $(function() {
     loadData.prototype.init = function() {
         var _this = this;
         laadData();
-        
+        getprovince();
          //export-btn
         $(document).on('click', '.sea-btn', function() {
             laadData();
@@ -62,7 +62,7 @@ $(function() {
 
         //获取省份
         function getprovince(){
-            app.posttoken(app.url.api_base + "selections/staffs", {},
+            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", {},
                     function(req) {
                         if (req.code == 0) {
                             var data = req.data.staffs;

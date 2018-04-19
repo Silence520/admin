@@ -231,9 +231,9 @@ a {
     padding-left: 0px;
 }
 
-.searchbox .col-md-4,
+.searchbox .col-md-6,
 .searchbox .col-md-1,
-.searchbox .col-md-4 h4 {
+.searchbox .col-md-6 h4 {
     text-align: left;
     line-height: 40px;
 }

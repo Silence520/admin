@@ -33,3 +33,13 @@ $(function() {
 
     new loadData();
 });
+
+// 线上：/onlineListJsonResult
+// 线下：/OfflineListJsonResult
+// app：/appListJsonResult
+// 微博：/weiboListJsonResult
+// 微信：/wechatListJsonResult
+// 线上：schoolArea必传
+// 线下：schoolArea必传
+// app、微博、微信：channleName和schoolArea必传
+// pageNo和everyPage

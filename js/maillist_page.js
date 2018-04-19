@@ -26,6 +26,7 @@ $(function() {
                     var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
+                            $('.schoolname').html(req.data[0].schoolname+' 校区对接人通讯录');
                             var html = '';
                             $.each(req, function(i, v) {
                                 html += '<tr>';
