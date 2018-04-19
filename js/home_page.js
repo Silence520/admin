@@ -62,14 +62,18 @@ $(function() {
 
         //获取省份
         function getprovince(){
-            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", {},
+            var data={
+                'level':2
+            }
+            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
                     function(req) {
+                        var req=JSON.parse(req)
                         if (req.code == 0) {
-                            var data = req.data.staffs;
+                            var data = req.data;
                             if (data.length > 0) {
                                 var html = '<option value="">请选择</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                    html += '<option value="' + v.name + '">' + v.name + '</option>';
                                 });
                                 $('#province').html(html);
                             }
