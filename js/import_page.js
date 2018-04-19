@@ -1,10 +1,5 @@
 $(function() {
     function loadData() {
-        this.data = {
-            Id: app.getParameterByName('NO'),
-            pageIndex: 1,
-            everyPage: 10,
-        };
         this.init();
     }
 

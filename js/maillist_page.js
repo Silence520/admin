@@ -2,7 +2,7 @@ $(function() {
     function loadData() {
         this.data = {
             Id: app.getParameterByName('NO'),
-            pageIndex:1,
+            pageIndex: 1,
             everyPage: 10,
         };
         this.init();
@@ -18,23 +18,37 @@ $(function() {
 
         //获取数据 
         function laadData() {
-            app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", {},
-                   function(req) {
-                        // var data=JSON.parse(req)
-                        var html='';
-                        $.each(req,function(i,v){
-                                   html+='<tr>';
-                                   html+='<td>'+(i+1)+'</td>';
-                                   html+='<td>'+v.schoolname+'</td>';
-                                   html+='<td>'+v.name+'</td>';
-                                   html+='<td>学校社长</td>';
-                                   html+='<td>'+v.mobile1+'</td>';
-                                   html+='<td>'+v.wechat+'</td>';
-                                   html+='<td>'+v.email+'</td>';
-                                   html+='</tr>';
-                        })
-                        $('.table>tbody').html(html)
-              });   
+            var data = {
+                'schoolArea ': "a"
+            };
+            app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", data,
+                function(req) {
+                    var req = JSON.parse(req)
+                    if (req.code == 0) {
+                        if (req.data != undefined && req.data.length > 0) {
+                            var html = '';
+                            $.each(req, function(i, v) {
+                                html += '<tr>';
+                                html += '<td>' + (i + 1) + '</td>';
+                                html += '<td>' + v.schoolname + '</td>';
+                                html += '<td>' + v.name + '</td>';
+                                html += '<td>' + v.title + '</td>';
+                                html += '<td>' + v.mobile1 + '</td>';
+                                html += '<td>' + v.wechat + '</td>';
+                                html += '<td>' + v.email + '</td>';
+                                html += '</tr>';
+                            })
+                            $('.table>tbody').html(html)
+                        } else {
+                            Prompt.show('暂无数据！', '提示', function() {});
+                            $('.table').remove();
+                            // $('.datalistbox').html('<p class="nodata">暂无数据！</p>');
+                        }
+                    } else {
+                        Prompt.show(req.massage, '提示', function() {})
+                    }
+
+                });
         }
 
     };

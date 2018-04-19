@@ -172,7 +172,7 @@ a {
     text-align: left;
     font-size: 12px;
     color: red;
-    margin:4px 47px;
+    margin:4px 0;
 }
 .text-center.col-sm-12{
     margin-top: 20px;
@@ -261,4 +261,10 @@ a {
 .tablebox-200 .table {
     width: 200%;
     max-width: 200%;
+}
+.nodata{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 100%;
 }
