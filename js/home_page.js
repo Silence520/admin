@@ -62,10 +62,7 @@ $(function() {
 
         //获取省份
         function getprovince(){
-            var data={
-                'level':2
-            }
-            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
+            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult",{},
                     function(req) {
                         var req=JSON.parse(req)
                         if (req.code == 0) {
@@ -73,7 +70,7 @@ $(function() {
                             if (data.length > 0) {
                                 var html = '<option value="">请选择</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v.name + '">' + v.name + '</option>';
+                                    html += '<option value="' + v. id+ '">' + v.name + '</option>';
                                 });
                                 $('#province').html(html);
                             }
@@ -86,16 +83,17 @@ $(function() {
          //获取城市
         function getcity(num){
             var data = {
-                   'cityCode': num
+                   'level': num
             };
-            app.posttoken(app.url.api_base + "selections/staffs", data,
-                    function(req) {
+            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
+                     function(req) {
+                        var req=JSON.parse(req)
                         if (req.code == 0) {
-                            var data = req.data.staffs;
+                            var data = req.data;
                             if (data.length > 0) {
                                 var html = '<option value="">请选择</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v.id + '">' + v.text + '</option>';
+                                    html += '<option value="' + v. id+ '">' + v.name + '</option>';
                                 });
                                 $('#city').html(html);
                             }
@@ -108,22 +106,23 @@ $(function() {
              //获取地区
            function getarea(num){
              var data = {
-                    'cityCode': num
+                    'level': num
              };
-                    app.posttoken(app.url.api_base + "selections/staffs", data,
+                    app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
                             function(req) {
-                                if (req.code == 0) {
-                                    var data = req.data.staffs;
-                                    if (data.length > 0) {
-                                        var html = '<option value="">请选择</option>';
-                                        $.each(data, function(i, v) {
-                                            html += '<option value="' + v.id + '">' + v.text + '</option>';
-                                        });
-                                        $('#area').html(html);
-                                    }
-                                } else {
-                                    Prompt.show(req.message);
-                                }
+                               var req=JSON.parse(req)
+                               if (req.code == 0) {
+                                   var data = req.data;
+                                   if (data.length > 0) {
+                                       var html = '<option value="">请选择</option>';
+                                       $.each(data, function(i, v) {
+                                           html += '<option value="' + v.id + '">' + v.name + '</option>';
+                                       });
+                                       $('#area').html(html);
+                                   }
+                               } else {
+                                   Prompt.show(req.message);
+                               }
                     });
              }
 
