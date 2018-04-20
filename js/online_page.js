@@ -63,19 +63,3 @@ $(function() {
 
     new loadData();
 });
-// //校区名
-//     private String schoolarea;
-//     //渠道名称
-//     private String channelname;
-//     //渠道类型
-//     private String channeltype;
-//     //官方
-//     private String isofficial;
-//     //供应商
-//     private String supplier;
-//     //装机量（静态）=粉丝量
-//     private String fans;
-//     //日活(静态)
-//     private String daily;
-//     //备注
-//     private String remarks;

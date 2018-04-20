@@ -73,36 +73,6 @@ $(function() {
 
                 });
         }
-
-        //获取数据 
-        // function laadData() {
-
-        //             // html+='<tr>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='<td></td>';
-        //             //        html+='</tr>';
-        // }
     };
 
     new loadData();
