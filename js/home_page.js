@@ -64,7 +64,6 @@ $(function() {
         function getprovince(){
             app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult",{},
                     function(req) {
-                        var req=JSON.parse(req)
                         if (req.code == 0) {
                             var data = req.data;
                             if (data.length > 0) {
@@ -87,7 +86,6 @@ $(function() {
             };
             app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
                      function(req) {
-                        var req=JSON.parse(req)
                         if (req.code == 0) {
                             var data = req.data;
                             if (data.length > 0) {
@@ -110,7 +108,6 @@ $(function() {
              };
                     app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
                             function(req) {
-                               var req=JSON.parse(req)
                                if (req.code == 0) {
                                    var data = req.data;
                                    if (data.length > 0) {

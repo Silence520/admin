@@ -19,11 +19,10 @@ $(function() {
         //获取数据 
         function laadData() {
             var data = {
-                'schoolArea ': "a"
+                schoolArea: "a"
             };
             app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", data,
                 function(req) {
-                    var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
                             $('.schoolname').html(req.data[0].schoolname+' 校区对接人通讯录');

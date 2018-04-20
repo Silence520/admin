@@ -28,7 +28,6 @@ $(function() {
             };
             app.posttoken(app.url.api_base + "schools/main/onlineListJsonResult", data,
                 function(req) {
-                    var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
                             var html = '';
