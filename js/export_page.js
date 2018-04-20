@@ -31,11 +31,11 @@ $(function() {
             // html+='<td><button type="button" class="btn btn-default downloadData">下载</button></td>';
             // html+='</tr>';
 
-             if(_this.data.pageIndex>1){
-                    $('.table>tbody').append(html)
-             }else{
-                    $('.table>tbody').html(html)
-             }
+             // if(_this.data.pageIndex>1){
+             //        $('.table>tbody').append(html)
+             // }else{
+             //        $('.table>tbody').html(html)
+             // }
         }
     };
 

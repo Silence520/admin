@@ -22,11 +22,12 @@ $(function() {
         })
 
         //获取数据 
+
         function laadData() {
             var data = {
                 'schoolArea': _this.data.Id,
                 'pageNo': _this.data.pageIndex,
-                'everyPag': _this.data.everyPage,
+                'everyPage': _this.data.everyPage,
             };
             app.posttoken(app.url.api_base + "schools/main/onlineListJsonResult", data,
                 function(req) {
@@ -37,27 +38,27 @@ $(function() {
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
                                    html+='<td>'+ (i+1) +'</td>';
-                                   html+='<td>'+ v.channeltype +'</td>';
-                                   html+='<td>'+ v.adtype +'</td>';
-                                   html+='<td>'+ v.channellocal +'</td>';
-                                   html+='<td>'+ v.localexp +'</td>';
-                                   html+='<td>'+ v.maplink +'</td>';
-                                   html+='<td>'+ v.location +'</td>';
-                                   html+='<td>'+ v.publishcycle +'</td>';
-                                   html+='<td>'+ v.datearea +'</td>';
-                                   html+='<td>'+ v.publishcount +'</td>';
-                                   html+='<td>'+ v.adimgexample +'</td>';
-                                   html+='<td>'+ v.adquality +'</td>';
-                                   html+='<td>'+ v.adsize +'</td>';
-                                   html+='<td>'+ v.adremark +'</td>';
-                                   html+='<td>'+ v.periodicalprice +'</td>';
-                                   html+='<td>'+ v.To4A +'</td>';
-                                   html+='<td>'+ v.toguest +'</td>';
-                                   html+='<td>'+ v.baseprice +'</td>';
-                                   html+='<td>'+ v.normalperiodicalprice +'</td>';
-                                   html+='<td>'+ v.normalTo4A +'</td>';
-                                   html+='<td>'+ v.normaltoguest +'</td>';
-                                   html+='<td>'+ v.normalbaseprice +'</td>';
+                                   html+='<td>'+replace( v.channeltype )+'</td>';
+                                   html+='<td>'+replace( v.adtype )+'</td>';
+                                   html+='<td>'+replace( v.channellocal )+'</td>';
+                                   html+='<td>'+replace( v.localexp )+'</td>';
+                                   html+='<td>'+replace( v.maplink )+'</td>';
+                                   html+='<td>'+replace( v.location )+'</td>';
+                                   html+='<td>'+replace( v.publishcycle )+'</td>';
+                                   html+='<td>'+replace( v.datearea )+'</td>';
+                                   html+='<td>'+replace( v.publishcount )+'</td>';
+                                   html+='<td>'+replace( v.adimgexample )+'</td>';
+                                   html+='<td>'+replace( v.adquality )+'</td>';
+                                   html+='<td>'+replace( v.adsize )+'</td>';
+                                   html+='<td>'+replace( v.adremark )+'</td>';
+                                   html+='<td>'+replace( v.periodicalprice )+'</td>';
+                                   html+='<td>'+replace( v.To4A )+'</td>';
+                                   html+='<td>'+replace( v.toguest )+'</td>';
+                                   html+='<td>'+replace( v.baseprice )+'</td>';
+                                   html+='<td>'+replace( v.normalperiodicalprice )+'</td>';
+                                   html+='<td>'+replace( v.normalTo4A )+'</td>';
+                                   html+='<td>'+replace( v.normaltoguest )+'</td>';
+                                   html+='<td>'+replace( v.normalbaseprice )+'</td>';
                                    html+='</tr>';
                             })
                             $('.table>tbody').html(html)

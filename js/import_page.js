@@ -16,10 +16,6 @@ $(function() {
                 Prompt.show('请选择上传文件！');
                 return false;
             }
-            // if (first == '') {
-            //     Prompt.show('请选择一级渠道！');
-            //     return false;
-            // }
             data.append('file', addFile);
             // http://47.98.161.17:8080/schools/main/importExcel
             // data.append('firstSourceId', first);
