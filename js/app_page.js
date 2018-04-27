@@ -28,7 +28,7 @@ $(function() {
                 'schoolArea': _this.data.Id,
                 'channleName':_this.data.Name,
                 'pageNo': _this.data.pageIndex,
-                'everyPag': _this.data.everyPage,
+                'everyPage': _this.data.everyPage,
             };
             app.posttoken(app.url.api_base + "schools/main/wechatListJsonResult", data,
                 function(req) {

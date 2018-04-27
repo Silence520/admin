@@ -27,9 +27,9 @@ $(function() {
         function laadData() {
             var data = {
                 'schoolArea': _this.data.Id,
-                'channleName':_this.data.Name,
+                'id':_this.data.Name,
                 'pageNo': _this.data.pageIndex,
-                'everyPag': _this.data.everyPage,
+                'everyPage': _this.data.everyPage,
             };
             app.posttoken(app.url.api_base + "schools/main/weiboListJsonResult", data,
                 function(req) {
@@ -40,27 +40,27 @@ $(function() {
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
                                    html+='<td>'+ (i+1) +'</td>';
-                                   html+='<td>'+ replace(v.appname )+'</td>';
-                                   html+='<td>'+ replace(v.quantity )+'</td>';
-                                   html+='<td>'+ replace(v.adlocal )+'</td>';
-                                   html+='<td>'+ replace(v.activity )+'</td>';
-                                   html+='<td>'+ replace(v.showtype )+'</td>';
-                                   html+='<td>'+ replace(v.interact )+'</td>';
+                                   html+='<td>'+ replace(v.weiboname )+'</td>';
+                                   html+='<td>'+ replace(v.supplier )+'</td>';
+                                   html+='<td></td>';
+                                   html+='<td>'+ replace(v.showtimes )+'</td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
                                    html+='<td>'+ replace(v.adimgexample )+'</td>';
-                                   html+='<td>'+ replace(v.texts )+'</td>';
-                                   html+='<td>'+ replace(v.imgformat )+'</td>';
-                                   html+='<td>'+ replace(v.imgsize )+'</td>';
-                                   html+='<td>'+ replace(v.imgnum )+'</td>';
-                                   html+='<td>'+ replace(v.imgbulk )+'</td>';
-                                   html+='<td>'+ replace(v.imgremark )+'</td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
+                                   html+='<td></td>';
                                    html+='<td>'+ replace(v.periodicalprice )+'</td>';
-                                   html+='<td>'+ replace(v.To4A )+'</td>';
+                                   html+='<td></td>';
                                    html+='<td>'+ replace(v.toguest )+'</td>';
                                    html+='<td>'+ replace(v.baseprice )+'</td>';
-                                   html+='<td>'+ replace(v.separeaperiodicalpric )+'</td>';
-                                   html+='<td>'+ replace(v.separeaTo4A )+'</td>';
-                                   html+='<td>'+ replace(v.separeatoguest )+'</td>';
-                                   html+='<td>'+ replace(v.separeabaseprice )+'</td>';
+                                   html+='<td>'+ replace(v.relayperiodicalprice )+'</td>';
+                                   html+='<td>'+ replace(v.relayTo4A )+'</td>';
+                                   html+='<td>'+ replace(v.relaytoguest )+'</td>';
+                                   html+='<td>'+ replace(v.relaybaseprice )+'</td>';
                                    html+='</tr>';
                             })
                             $('.table>tbody').html(html)
@@ -79,4 +79,60 @@ $(function() {
 
     new loadData();
 });
+
+// //学校表外键
+//     private Long schoolid;
+
+
+//     //微博名称
+//     private String weiboname;
+    
+//     //供应商
+//     private String supplier;
+    
+//      //关联学校
+//     private String schoolname;
+
+//     //账号类型
+//     private String accounttype;
+
+//     //认证信息
+//     private String authinfo;
+
+//     //微博链接
+//     private String weibolink;
+
+//     //域名
+//     private String url;
+
+//     //曝光量描述
+//     private String showtimes;
+
+//     //广告曝光实例(图片)
+//     private String adimgexample;
+
+//     //直发刊例价
+//     private String periodicalprice;
+
+//     //直发To4A
+//     private String To4A;
+
+//     //直发To直客
+//     private String toguest;
+
+//     //直发成本
+//     private String baseprice;
+
+
+//     //转发刊例价
+//     private String relayperiodicalprice;
+
+//     //转发To4A
+//     private String relayTo4A;
+
+//     //转发To直客
+//     private String relaytoguest;
+
+//     //转发成本
+//     private String relaybaseprice;
 

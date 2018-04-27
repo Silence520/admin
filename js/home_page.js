@@ -182,24 +182,24 @@ $(function() {
                                            html+='<td>'+replace(v.area)+'</td>';
                                            html+='<td>'+replace(v.schoolName)+'</td>';
                                            if (v.memberListCount>0) {
-                                                html+='<td><a href="maillist.html?NO='+v.schoolName+'">'+replace(v.memberListCount)+'</a></td>';
+                                                html+='<td><a href="maillist.html?NO='+v.schoolName+'"  target="_blank">'+replace(v.memberListCount)+'</a></td>';
                                             }else{
                                                 html+='<td>'+replace(v.memberListCount)+'</td>';
                                             }
                                             if (v.areaCount>0) {
-                                                html+='<td><a href="campuslist.html?NO='+v.schoolName+'">'+replace(v.areaCount)+'</a></td>';
+                                                html+='<td><a href="campuslist.html?NO='+v.schoolName+'"  target="_blank">'+replace(v.areaCount)+'</a></td>';
                                             }else{
                                                 html+='<td>'+replace(v.areaCount)+'</td>';
                                             }
                                            
                                            if(v.onLineCount>0){
-                                                html+='<td><a href="online.html?NO='+v.schoolName+'">'+replace(v.onLineCount)+'</a></td>';
+                                                html+='<td><a href="online.html?NO='+v.schoolName+'"  target="_blank">'+replace(v.onLineCount)+'</a></td>';
                                            }else{
                                                 html+='<td>'+replace(v.onLineCount)+'</td>';
                                            }
                                            html+='<td>¥ '+replace(v.onLinePeriodicalPriceCount)+'</td>';
                                             if(v.offLineCount>0){
-                                                html+='<td><a href="offlineresources.html?NO='+v.schoolName+'">'+replace(v.offLineCount)+'</a></td>';
+                                                html+='<td><a href="offlineresources.html?NO='+v.schoolName+'"  target="_blank">'+replace(v.offLineCount)+'</a></td>';
                                            }else{
                                                 html+='<td>'+replace(v.offLineCount)+'</td>';
                                            }

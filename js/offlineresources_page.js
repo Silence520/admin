@@ -17,8 +17,9 @@ $(function() {
         })
 
         //mode loaddata
-        $(document).on('click', '.add-more-data', function() {
-
+        $(document).on('click', '.add-more-data  span', function() {
+               _this.data.pageIndex+=1;
+              laadData();
         })
 
         //获取数据 
@@ -29,7 +30,7 @@ $(function() {
                 'pageNo': _this.data.pageIndex,
                 'everyPage': _this.data.everyPage,
             };
-            app.posttoken(app.url.api_base + "schools/main/onlineListJsonResult", data,
+            app.posttoken(app.url.api_base + "schools/main/OfflineListJsonResult", data,
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
@@ -61,7 +62,11 @@ $(function() {
                                    html+='<td>'+replace( v.normalbaseprice )+'</td>';
                                    html+='</tr>';
                             })
-                            $('.table>tbody').html(html)
+                             if(_this.data.pageIndex>1){
+                                    $('.table>tbody').append(html)
+                             }else{
+                                    $('.table>tbody').html(html)
+                             }
                         } else {
                             Prompt.show('暂无数据！', '提示', function() {});
                             $('.table').remove();
