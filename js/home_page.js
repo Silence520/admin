@@ -76,14 +76,14 @@ $(function() {
           var data = {
                          'level': 1
                   };
-            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult",data,
+            app.posttoken(app.url.api_base + "schools/main/areaListJsonResult",data,
                     function(req) {
                         if (req.code == 0) {
                             var data = req.data;
                             if (data.length > 0) {
-                                var html = '<option value="">请选择</option>';
+                                var html = '<option value="">请选择国家</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v. name+ '">' + v.name + '</option>';
+                                    html += '<option value="' + v. code+ '">' + v.name + '</option>';
                                 });
                                 $('#country').html(html);
                             }
@@ -96,17 +96,17 @@ $(function() {
         //获取省份
         function getprovince(num){
           var data = {
-                   'code': num,
+                   'parentCode': num,
                    'level': 2
             };
-            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult",data,
+            app.posttoken(app.url.api_base + "schools/main/areaListJsonResult",data,
                     function(req) {
                         if (req.code == 0) {
                             var data = req.data;
                             if (data.length > 0) {
-                                var html = '<option value="">请选择</option>';
+                                var html = '<option value="">请选择省份(直辖市)</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v. name+ '">' + v.name + '</option>';
+                                    html += '<option value="' + v. code+ '">' + v.name + '</option>';
                                 });
                                 $('#province').html(html);
                             }
@@ -119,17 +119,17 @@ $(function() {
          //获取城市
         function getcity(num){
             var data = {
-                   'code': num,
+                   'parentCode': num,
                    'level': 3
             };
-            app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
+            app.posttoken(app.url.api_base + "schools/main/areaListJsonResult", data,
                      function(req) {
                         if (req.code == 0) {
                             var data = req.data;
                             if (data.length > 0) {
-                                var html = '<option value="">请选择</option>';
+                                var html = '<option value="">请选择城市</option>';
                                 $.each(data, function(i, v) {
-                                    html += '<option value="' + v. name+ '">' + v.name + '</option>';
+                                    html += '<option value="' + v. code+ '">' + v.name + '</option>';
                                 });
                                 $('#city').html(html);
                             }
@@ -142,17 +142,17 @@ $(function() {
              //获取地区
            function getarea(num){
                    var data = {
-                          'code': num,
+                          'parentCode': num,
                          'level': 4
                          };
-                    app.posttoken(app.url.api_base + "/schools/main/areaListJsonResult", data,
+                    app.posttoken(app.url.api_base + "schools/main/areaListJsonResult", data,
                             function(req) {
                                if (req.code == 0) {
                                    var data = req.data;
                                    if (data.length > 0) {
-                                       var html = '<option value="">请选择</option>';
+                                       var html = '<option value="">请选择行政区(县)</option>';
                                        $.each(data, function(i, v) {
-                                           html += '<option value="' + v.name + '">' + v.name + '</option>';
+                                           html += '<option value="' + v.code + '">' + v.name + '</option>';
                                        });
                                        $('#area').html(html);
                                    }
@@ -167,52 +167,54 @@ $(function() {
                   var data={
                         'pageNo':   _this.data.pageIndex,
                         'everyPage': _this.data.everyPage,
-                        'province':_this.data.province,
-                        'city':_this.data.city,
-                        'district':_this.data.area,
-                        'country':_this.data.country
+                        'provinceId':_this.data.province,
+                        'cityId':_this.data.city,
+                        'districtId':_this.data.area,
+                        // 'country':_this.data.country
                   }
                  app.posttoken(app.url.api_base + "schools/main/campusMarketplace", data,
                         function(req) {
-                             var html='';
-                             $.each(req,function(i,v){
-                                           html+='<tr>';
-                                           html+='<td> <input type="checkbox" ></td>';
-                                           html+='<td>'+(i+1)+'</td>';
-                                           html+='<td>'+replace(v.area)+'</td>';
-                                           html+='<td>'+replace(v.schoolName)+'</td>';
-                                           if (v.memberListCount>0) {
-                                                html+='<td><a href="maillist.html?NO='+v.schoolName+'">'+replace(v.memberListCount)+'</a></td>';
-                                            }else{
-                                                html+='<td>'+replace(v.memberListCount)+'</td>';
-                                            }
-                                            if (v.areaCount>0) {
-                                                html+='<td><a href="campuslist.html?NO='+v.schoolName+'">'+replace(v.areaCount)+'</a></td>';
-                                            }else{
-                                                html+='<td>'+replace(v.areaCount)+'</td>';
-                                            }
-                                           
-                                           if(v.onLineCount>0){
-                                                html+='<td><a href="online.html?NO='+v.schoolName+'">'+replace(v.onLineCount)+'</a></td>';
-                                           }else{
-                                                html+='<td>'+replace(v.onLineCount)+'</td>';
-                                           }
-                                           html+='<td>¥ '+replace(v.onLinePeriodicalPriceCount)+'</td>';
-                                            if(v.offLineCount>0){
-                                                html+='<td><a href="offlineresources.html?NO='+v.schoolName+'">'+replace(v.offLineCount)+'</a></td>';
-                                           }else{
-                                                html+='<td>'+replace(v.offLineCount)+'</td>';
-                                           }
-                                           
-                                           html+='<td>¥ '+replace(v.offLinePeriodicalPriceCount)+'</td>';
-                                           html+='<td>'+replace(v.openStatus)+'</td>';
-                                           html+='</tr>';
-                             })
-                             if(_this.data.pageIndex>1){
-                                    $('.table>tbody').append(html)
-                             }else{
-                                    $('.table>tbody').html(html)
-                             }
+                          if(req.code==0){
+                               var html='';
+                               $.each(req.data,function(i,v){
+                                             html+='<tr>';
+                                             html+='<td> <input type="checkbox" ></td>';
+                                             html+='<td>'+(i+1)+'</td>';
+                                             html+='<td>'+replace(v.area)+'</td>';
+                                             html+='<td>'+replace(v.schoolName)+'</td>';
+                                             if (v.memberListCount>0) {
+                                                  html+='<td><a href="maillist.html?NO='+v.id+'"  target="_blank">'+replace(v.memberListCount)+'</a></td>';
+                                              }else{
+                                                  html+='<td>'+replace(v.memberListCount)+'</td>';
+                                              }
+                                              if (v.areaCount>0) {
+                                                  html+='<td><a href="campuslist.html?NO='+v.id+'"  target="_blank">'+replace(v.areaCount)+'</a></td>';
+                                              }else{
+                                                  html+='<td>'+replace(v.areaCount)+'</td>';
+                                              }
+                                             
+                                             if(v.onLineCount>0){
+                                                  html+='<td><a href="online.html?NO='+v.id+'"  target="_blank">'+replace(v.onLineCount)+'</a></td>';
+                                             }else{
+                                                  html+='<td>'+replace(v.onLineCount)+'</td>';
+                                             }
+                                             html+='<td>¥ '+replace(v.onLinePeriodicalPriceCount)+'</td>';
+                                              if(v.offLineCount>0){
+                                                  html+='<td><a href="offlineresources.html?NO='+v.id+'"  target="_blank">'+replace(v.offLineCount)+'</a></td>';
+                                             }else{
+                                                  html+='<td>'+replace(v.offLineCount)+'</td>';
+                                             }
+                                             
+                                             html+='<td>¥ '+replace(v.offLinePeriodicalPriceCount)+'</td>';
+                                             html+='<td>'+replace(v.openStatus)+'</td>';
+                                             html+='</tr>';
+                               })
+                               if(_this.data.pageIndex>1){
+                                      $('.table>tbody').append(html)
+                               }else{
+                                      $('.table>tbody').html(html)
+                               }
+                        }
                    });   
              }
         };

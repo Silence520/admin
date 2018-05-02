@@ -19,9 +19,9 @@ $(function() {
         //获取数据 
         function laadData() {
            var data = {
-                'schoolArea':_this.data.Id,
-                'pageNo':   _this.data.pageIndex,
-                'everyPage': _this.data.everyPage,       
+                'schoolAreaId':_this.data.Id,
+                // 'pageNo':   _this.data.pageIndex,
+                // 'everyPage': _this.data.everyPage,       
             };
             app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", data,
                 function(req) {
