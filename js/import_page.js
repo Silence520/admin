@@ -21,7 +21,7 @@ $(function() {
                 return false;
             }
             data.append('file', addFile);
-            data.append('firstSourceId', first);
+            data.append('type', first);
             app.postfile(app.url.api_base + "schools/main/importExcel", data, function(req) {
                    Prompt.show(req.message);
             });
