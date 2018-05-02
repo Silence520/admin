@@ -40,6 +40,11 @@
                     <div class="col-md-8">
                         <div class="col-md-1">地区</div>
                         <div class="col-md-2">
+                            <select class="form-control" id="country">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
                             <select class="form-control" id="province">
                                 <option value="">请选择</option>
                             </select>
@@ -54,11 +59,11 @@
                                 <option value="">请选择</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
+                        <!-- <div class="col-md-2">
                             <select class="form-control" id="type">
                                 <option value="">请选择</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-1">
                             <button type="button" class="btn btn-primary sea-btn">查 询</button>
                         </div>
@@ -66,7 +71,7 @@
                             <button type="button" class="btn btn-primary export-btn">导 出</button>
                         </div>
                     </div>
-                    <div class="col-md-4">共查询到165条数据按照地区排序</div>
+                    <!-- <div class="col-md-4">共查询到165条数据按照地区排序</div> -->
                 </div>
                 <table class="table table-striped table-hover ">
                     <thead>
@@ -80,14 +85,14 @@
                             <th>对接人</th>
                             <th>校区数</th>
                             <th>线上资源</th>
-                            <th>线上刊例假总和</th>
+                            <th>线上刊例价总和</th>
                             <th>线下广告点位</th>
                             <th>线下刊例假总和</th>
                             <th>开拓状态</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                      <!--   <tr>
                             <td>
                                 <input type="checkbox">
                             </td>
@@ -101,67 +106,7 @@
                             <td><a href="offlineresources.html">2330</a></td>
                             <td>¥ 155.934.34</td>
                             <td>已开拓</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>1</td>
-                            <td>北京市</td>
-                            <td>北京航空大学</td>
-                            <td><a href="maillist.html">3</a></td>
-                            <td><a href="campuslist.html">3</a></td>
-                            <td><a href="online.html">3</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td><a href="offlineresources.html">2330</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td>已开拓</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>1</td>
-                            <td>北京市</td>
-                            <td>北京航空大学</td>
-                            <td><a href="maillist.html">3</a></td>
-                            <td><a href="campuslist.html">3</a></td>
-                            <td><a href="online.html">3</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td><a href="offlineresources.html">2330</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td>已开拓</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>1</td>
-                            <td>北京市</td>
-                            <td>北京航空大学</td>
-                            <td><a href="maillist.html">3</a></td>
-                            <td><a href="campuslist.html">3</a></td>
-                            <td><a href="online.html">3</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td><a href="offlineresources.html">2330</a></td>
-                            <td>¥ 155.934.34</td>
-                            <td>已开拓</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>1</td>
-                            <td>北京市</td>
-                            <td>北京航空大学</td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>20</td>
-                            <td>¥ 155.934.34</td>
-                            <td>2330</td>
-                            <td>¥ 155.934.34</td>
-                            <td>已开拓</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <div class="form-group">
@@ -180,5 +125,34 @@
 
 </html>
 <script>
+$(function() {
+    //全选
+    $(document).on('click', '.checkall', function() {
+        if ($('.checkall').is(':checked')) {
+            $(this).parents('.table').find('input[type="checkbox"]').each(function() {
+                $(this).prop('checked', true);
+            });
+        } else {
+            $(this).parents('.table').find('input[type="checkbox"]').attr('checked', false);
+        }
+    });
 
+    //单个选择
+    $(document).on('click', '.table  input', function(e) {
+        e.stopPropagation();
+        var num = 0;
+        $('.table tbody input').each(function() {
+            if ($(this).is(':checked') == false) {
+                num = 1;
+            }
+        });
+        console.log(num)
+        if (num == 1) {
+            $('.checkall').attr("checked", false);
+        } else if (num == 0) {
+            $('.checkall').prop("checked", true);
+        }
+    });
+
+});
 </script>

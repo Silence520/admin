@@ -18,25 +18,26 @@ $(function() {
 
         //获取数据 
         function laadData() {
-            var data = {
-                'schoolArea ': "a"
+           var data = {
+                'schoolArea':_this.data.Id,
+                'pageNo':   _this.data.pageIndex,
+                'everyPage': _this.data.everyPage,       
             };
             app.posttoken(app.url.api_base + "schools/main/memberListJsonResult", data,
                 function(req) {
-                    var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
                             $('.schoolname').html(req.data[0].schoolname+' 校区对接人通讯录');
                             var html = '';
-                            $.each(req, function(i, v) {
+                            $.each(req.data, function(i, v) {
                                 html += '<tr>';
                                 html += '<td>' + (i + 1) + '</td>';
-                                html += '<td>' + v.schoolname + '</td>';
-                                html += '<td>' + v.name + '</td>';
-                                html += '<td>' + v.title + '</td>';
-                                html += '<td>' + v.mobile1 + '</td>';
-                                html += '<td>' + v.wechat + '</td>';
-                                html += '<td>' + v.email + '</td>';
+                                html += '<td>' +replace( v.schoolname )+ '</td>';
+                                html += '<td>' +replace( v.name )+ '</td>';
+                                html += '<td>' +replace( v.title )+ '</td>';
+                                html += '<td>' +replace( v.mobile1 )+ '</td>';
+                                html += '<td>' +replace( v.wechat )+ '</td>';
+                                html += '<td>' +replace( v.email )+ '</td>';
                                 html += '</tr>';
                             })
                             $('.table>tbody').html(html)

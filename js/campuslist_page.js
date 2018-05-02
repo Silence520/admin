@@ -19,11 +19,12 @@ $(function() {
          //获取数据 
         function laadData() {
             var data = {
-                'schoolArea ': "a"
+                'schoolArea':_this.data.Id,
+                'pageNo':   _this.data.pageIndex,
+                'everyPage': _this.data.everyPage,       
             };
             app.posttoken(app.url.api_base + "schools/main/schoolAreaListJsonResult", data,
                 function(req) {
-                    var req = JSON.parse(req)
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
                             var html = '';
@@ -31,13 +32,13 @@ $(function() {
                             $.each(req.data, function(i, v) {
                                     html+='<tr>';
                                     html+='<td>'+(i+1)+'</td>';
-                                    html+='<td>'+v.schoolarea+'</td>';
-                                    html+='<td>'+v.schaddoolress +'</td>';
-                                    html+='<td>'+v.students  +'</td>';
-                                    html+='<td>'+v.teachers  +'</td>';
-                                    html+='<td>'+v.teachers +'</td>';
-                                    html+='<td>'+v.staffs  +'</td>';
-                                    html+='<td>'+v.schaddoolress +'</td>';
+                                    html+='<td>'+replace(v.schoolarea)+'</td>';
+                                    html+='<td>'+replace(v.schaddoolress )+'</td>';
+                                    html+='<td>'+replace(v.students  )+'</td>';
+                                    html+='<td>'+replace(v.teachers  )+'</td>';
+                                    html+='<td>'+replace(v.teachers )+'</td>';
+                                    html+='<td>'+replace(v.staffs  )+'</td>';
+                                    html+='<td>'+replace(v.schaddoolress) +'</td>';
                                     html+='</tr>';
                             })
                             $('.table>tbody').html(html)
@@ -52,29 +53,6 @@ $(function() {
 
                 });
         }
-
-        //获取数据 
-        // function laadData() {
-        //     app.posttoken(app.url.api_base + "schools/main/onlineResult", {},
-        //            function(req) {
-        //                 // var data=JSON.parse(req)
-        //                 var html='';
-        //                 $.each(req,function(i,v){
-        //                             html+='<tr>';
-        //                             html+='<td>'+(i+1)+'</td>';
-        //                             html+='<td>'+v.school+'</td>';
-        //                             html+='<td>'+v.schoolarea+'</td>';
-        //                             html+='<td>4000</td>';
-        //                             html+='<td>29:30</td>';
-        //                             html+='<td>188</td>';
-        //                             html+='<td>18888</td>';
-        //                             html+='<td>¥ 123，32434</td>';
-        //                             html+='</tr>';
-        //                 })
-        //                 $('.table>tbody').html(html)
-        //       });   
-        // }
-
 
     };
     new loadData();

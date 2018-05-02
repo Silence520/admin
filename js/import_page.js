@@ -16,10 +16,6 @@ $(function() {
                 Prompt.show('请选择上传文件！');
                 return false;
             }
-            // if (first == '') {
-            //     Prompt.show('请选择一级渠道！');
-            //     return false;
-            // }
             data.append('file', addFile);
             // http://47.98.161.17:8080/schools/main/importExcel
             // data.append('firstSourceId', first);
@@ -28,18 +24,7 @@ $(function() {
             });
         });
 
-
     };
-
     new loadData();
 });
 
-// 线上：/onlineListJsonResult
-// 线下：/OfflineListJsonResult
-// app：/appListJsonResult
-// 微博：/weiboListJsonResult
-// 微信：/wechatListJsonResult
-// 线上：schoolArea必传
-// 线下：schoolArea必传
-// app、微博、微信：channleName和schoolArea必传
-// pageNo和everyPage

@@ -8,8 +8,7 @@ $(function() {
         var data = {
             id: app.getParameterByName('NO'),
         };
-        app.posttoken(app.url.api_base + "schools/summResult", data, function(req) {
-
+        app.posttoken(app.url.api_base + "schools/main/summResult", data, function(req) {
             $('.schoolCount').html(data.schoolCount + '所')
             $('.studentCount').html(data.studentCount + '人')
             $('.sourceCount').html(data.sourceCount + '个')
