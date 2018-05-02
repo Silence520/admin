@@ -73,9 +73,9 @@
 
 
                          <div class="form-group">
-                            <label class="col-sm-2 control-label">上传类型</label>
+                            <label class="col-sm-2 control-label">模板类型</label>
                             <div class="col-sm-9 line-height">
-                                 <select class="form-control" id="filetype">
+                                 <select class="form-control" id="tmpltype">
                                             <option value="">请选择文件类型</option>
                                             <option value="school">学校</option>
                                             <option  value="Campus">校区</option>
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">文件模板</label>
                             <div class="col-sm-9 line-height">
-                                <a href=" ../lib/template.xlsx">点击下载导入表格模板</a>
+                                <a  id="downhref">点击下载导入表格模板</a>
                             </div>
                         </div>
                        
@@ -124,6 +124,20 @@ $(function() {
     //上传文件
     $(document).on('change', '#addFile', function() {
         $('#AddName').val($(this).val());
+    });
+
+    //获取下载的文本类型
+     $(document).on('change', '#tmpltype', function() {
+         var data=$(this).val();
+         if(data!=''){
+            $('#downhref').attr('data-href','  ../xlsx/'+data+'.xlsx');
+         }
+    });
+    
+    //下载文件模板
+    $(document).on('click', '#downhref', function() {
+         var data=$(this).attr('data-href');
+          window.open(data);
     });
 
 })
