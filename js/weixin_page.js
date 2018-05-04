@@ -34,7 +34,7 @@ $(function() {
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
-                            $('.schoolname').html(req.data[0].schoolname+' 微信订阅号价目表');
+                            $('.schoolname').html(req.data[0].schoolname!='null' ? req.data[0].schoolname:''+' 微信订阅号价目表');
                             var html = '';
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';

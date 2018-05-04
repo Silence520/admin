@@ -29,7 +29,7 @@ $(function() {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
                             var html = '';
-                            $('.schoolname').html(_this.data.Id+' 线上资源概览');
+                            $('.schoolname').html(' 线上资源概览');
                             $.each(req.data, function(i, v) {
                                     html+='<tr>';
                                    html+='<td>'+(i+1)+'</td>';

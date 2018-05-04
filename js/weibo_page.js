@@ -35,7 +35,7 @@ $(function() {
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
-                            $('.schoolname').html(req.data[0].schoolname+' 微博刊例价表');
+                          $('.schoolname').html(req.data[0].schoolname!='null' ? req.data[0].schoolname:''+' 微博刊例价表');
                             var html = '';
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
