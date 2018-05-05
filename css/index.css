@@ -93,7 +93,14 @@ a {
 .Irtop ul li {
     color: #fff;
 }
-
+.icon-total{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/total.png') no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
 .icon-search {
     display: inline-block;
     width: 20px;
