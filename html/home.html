@@ -60,11 +60,6 @@
                                 <option value="">请选择行政区(县)</option>
                             </select>
                         </div>
-                        <!-- <div class="col-md-2">
-                            <select class="form-control" id="type">
-                                <option value="">请选择</option>
-                            </select>
-                        </div> -->
                         <div class="col-md-1">
                             <button type="button" class="btn btn-primary sea-btn">查 询</button>
                         </div>
@@ -147,13 +142,15 @@ $(function() {
                 num = 1;
             }
         });
-        console.log(num)
+        // console.log(num)
         if (num == 1) {
             $('.checkall').attr("checked", false);
         } else if (num == 0) {
             $('.checkall').prop("checked", true);
         }
     });
+
+
 
 });
 </script>

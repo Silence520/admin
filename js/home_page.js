@@ -22,9 +22,32 @@ $(function() {
             laadData();
         })
 
+
         //导出报表
         $(document).on('click', '.export-btn', function() {
-                window.open(app.url.api_base + "schools/main/exportSchoolResult")
+            var ArrId=eachListId();
+             if(_this.data.city==''){
+                  Prompt.show('导入数据请选择到城市!');
+                  return false;
+              }
+             if(ArrId==''){
+                  Prompt.show('请选择学校!');
+                  return false;
+              }
+             var data = {
+                          'provinceId':_this.data.province,
+                          'cityId':_this.data.city,
+                          'districtId':_this.data.area,
+                          'Ids':ArrId
+            };
+            app.posttoken(app.url.api_base + "schools/main/exportSchoolResult", data,
+                            function(req) {
+                               if (req.code == 0) {
+                                 
+                               } else {
+                                   Prompt.show(req.message);
+                               }
+            });
         })
 
         //mode loaddata
@@ -162,8 +185,20 @@ $(function() {
                     });
              }
 
+             // 获取选中的列表ID;
+             function eachListId(){
+                 var arrId=new Array();
+                 $('.table>tbody input').each(function(){
+                     if($(this).is(':checked') ){
+                         arrId.push($(this).parents('tr').attr('dataid'))
+                     }
+                 })
+                return arrId;
+             }
              //获取数据 
              function laadData() {
+                  _this.data.city != ''? $('.export-btn').show() : $('.export-btn').hide();
+                  $('.checkall').attr("checked", false);
                   var data={
                         'pageNo':   _this.data.pageIndex,
                         'everyPage': _this.data.everyPage,
@@ -177,7 +212,7 @@ $(function() {
                           if(req.code==0){
                                var html='';
                                $.each(req.data,function(i,v){
-                                             html+='<tr>';
+                                             html+='<tr dataId='+v.id+'>';
                                              html+='<td> <input type="checkbox" ></td>';
                                              html+='<td>'+(i+1)+'</td>';
                                              html+='<td>'+replace(v.area)+'</td>';
