@@ -53,28 +53,28 @@
                                 </div>
                             </div>
                         </div>
-                        <!--  <div class="form-group">
+                         <div class="form-group">
                             <label class="col-sm-2 control-label">上传类型</label>
                             <div class="col-sm-9 line-height">
                                  <select class="form-control" id="filetype">
                                             <option value="">请选择文件类型</option>
                                             <option value="1">学校</option>
                                             <option  value="2">校区</option>
-                                            <option  value="3">校区学员信息</option>
+                                            <option  value="3">校区学员通讯录</option>
                                             <option  value="4"> 校区教工通讯录</option>
-                                            <option  value="5"> 对接人通讯录</option>
-                                            <option  value="6"> 供应商</option>
+                                            <option  value="5"> 校园大使通讯录</option>
+                                            <option  value="6"> 校园广告供应商</option>
                                             <option  value="7"> 线上渠道</option>
-                                            <option  value="8"> 线上app</option>
-                                            <option  value="9">  线上微博</option>
-                                            <option  value="10">线上微信</option>
-                                            <option  value="11">线下渠道</option>
+                                            <option  value="8"> 线上渠道-APP</option>
+                                            <option  value="9">  线上渠道-微博</option>
+                                            <option  value="10">线上渠道-微信订阅号</option>
+                                            <option  value="11">线下渠道-广告点位</option>
                                 </select>
-                            </div> -->
-                        <!-- </div> -->
+                            </div>
+                        </div>
 
 
-                         <div class="form-group">
+                         <!-- <div class="form-group">
                             <label class="col-sm-2 control-label">模板类型</label>
                             <div class="col-sm-9 line-height">
                                  <select class="form-control" id="tmpltype">
@@ -88,12 +88,12 @@
                                             <option  value="CampusAdvertisingSupplier"> 校园广告供应商</option>
                                             <option  value="OnlineChannels"> 线上渠道</option>
                                             <option  value="OnlineChannels-APP"> 线上渠道-APP</option>
-                                            <option  value="OnlineChannels-Weibo">  线上渠道-微博</option>
+                                            <option  value="OnlineChannels-Weibo">线上渠道-微博</option>
                                             <option  value="OnlineChannels-WechatSubscriptionNumber">线上渠道-微信订阅号</option>
                                             <option  value="Offlinechannels-advertisingpoints">线下渠道-广告点位</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">文件模板</label>
                             <div class="col-sm-9 line-height">
@@ -105,6 +105,7 @@
                             <div class="col-sm-9 col-md-offset-2 ">
                                     <p class="meozhu">1. 上传数据大小不能超过2MB，否则会导致服务器过载。</p>
                                     <p class="meozhu">2. 为保证导入数据不要污染原始数据，请务必检查数据源。</p>
+                                    <!-- <p class="meozhu">2. 为保证导入数据的成功，请务必保持导入文件名与模版名称一致。</p> -->
                             <div class="col-sm-9">
                             <p class="text-center col-sm-12">
                                 <button type="button" class="btn btn-primary BtnConfirm">确认导入</button>
@@ -130,17 +131,33 @@ $(function() {
     });
 
     //获取下载的文本类型
-     $(document).on('change', '#tmpltype', function() {
-         var data=$(this).val();
+     $(document).on('change', '#filetype', function() {
+        var arrName=[   
+                "School",
+                "Campus",
+                "CampusStudentDirectory",
+                "CampusStaffAddressBook",
+                "CampusAmbassadorAddressBook",
+                "CampusAdvertisingSupplier",
+                "OnlineChannels",
+                "OnlineChannels-APP",
+                "OnlineChannels-Weibo",
+                "OnlineChannels-WechatSubscriptionNumber",
+                "Offlinechannels-advertisingpoints"
+        ]
+         var data=$(this).val()-1;
+         console.log(data)
          if(data!=''){
-            $('#downhref').attr('data-href','  ../xlsx/'+data+'.xlsx');
+            $('#downhref').attr('data-href','  ../xlsx/'+arrName[data]+'.xlsx');
          }
     });
     
     //下载文件模板
     $(document).on('click', '#downhref', function() {
          var data=$(this).attr('data-href');
+         if(data){
           window.open(data);
+         }
     });
 
 })
