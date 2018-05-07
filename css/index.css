@@ -245,6 +245,11 @@ a {
     background: #fff;
 }
 
+.searchbox .col-md-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .searchbox .col-md-3 {
     margin-top: 3px;
     padding-left: 0px;
