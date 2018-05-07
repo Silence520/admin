@@ -40,14 +40,16 @@ $(function() {
                           'districtId':_this.data.area,
                           'Ids':ArrId
             };
-            app.posttoken(app.url.api_base + "schools/main/exportSchoolResult", data,
-                            function(req) {
-                               if (req.code == 0) {
-                                 
-                               } else {
-                                   Prompt.show(req.message);
-                               }
-            });
+            window.open(app.url.api_base + "schools/main/exportSchoolResult?provinceId="+_this.data.province+"&cityId="+_this.data.city+"&districtId="+_this.data.area+"Ids="+ArrId)
+            // app.posttoken(app.url.api_base + "schools/main/exportSchoolResult", data,
+            //                 function(req) {
+            //                    if (req.code == 0) {
+            //                    } else {
+            //                       window.open(app.url.api_base + "schools/main/exportSchoolResult")
+            //                        // Prompt.show(req.message);
+            //                    }
+            // });
+
         })
 
         //mode loaddata
@@ -211,44 +213,48 @@ $(function() {
                         function(req) {
                           if(req.code==0){
                                var html='';
-                               $.each(req.data,function(i,v){
-                                             html+='<tr dataId='+v.id+'>';
-                                             html+='<td> <input type="checkbox" ></td>';
-                                             html+='<td>'+(i+1)+'</td>';
-                                             html+='<td>'+replace(v.area)+'</td>';
-                                             html+='<td>'+replace(v.schoolName)+'</td>';
-                                             if (v.memberListCount>0) {
-                                                  html+='<td><a href="maillist.html?NO='+v.id+'"  target="_blank">'+replace(v.memberListCount)+'</a></td>';
-                                              }else{
-                                                  html+='<td>'+replace(v.memberListCount)+'</td>';
-                                              }
-                                              if (v.areaCount>0) {
-                                                  html+='<td><a href="campuslist.html?NO='+v.id+'"  target="_blank">'+replace(v.areaCount)+'</a></td>';
-                                              }else{
-                                                  html+='<td>'+replace(v.areaCount)+'</td>';
-                                              }
-                                             
-                                             if(v.onLineCount>0){
-                                                  html+='<td><a href="online.html?NO='+v.id+'"  target="_blank">'+replace(v.onLineCount)+'</a></td>';
-                                             }else{
-                                                  html+='<td>'+replace(v.onLineCount)+'</td>';
-                                             }
-                                             html+='<td>¥ '+replace(v.onLinePeriodicalPriceCount)+'</td>';
-                                              if(v.offLineCount>0){
-                                                  html+='<td><a href="offlineresources.html?NO='+v.id+'"  target="_blank">'+replace(v.offLineCount)+'</a></td>';
-                                             }else{
-                                                  html+='<td>'+replace(v.offLineCount)+'</td>';
-                                             }
-                                             
-                                             html+='<td>¥ '+replace(v.offLinePeriodicalPriceCount)+'</td>';
-                                             html+='<td>'+replace(v.openStatus)+'</td>';
-                                             html+='</tr>';
-                               })
-                               if(_this.data.pageIndex>1){
-                                      $('.table>tbody').append(html)
-                               }else{
-                                      $('.table>tbody').html(html)
-                               }
+                               if(req.data.length>0){
+                                         $.each(req.data,function(i,v){
+                                                       html+='<tr dataId='+v.id+'>';
+                                                       html+='<td> <input type="checkbox" ></td>';
+                                                       html+='<td>'+(i+1)+'</td>';
+                                                       html+='<td>'+replace(v.area)+'</td>';
+                                                       html+='<td>'+replace(v.schoolName)+'</td>';
+                                                       if (v.memberListCount>0) {
+                                                            html+='<td><a href="maillist.html?NO='+v.id+'"  target="_blank">'+replace(v.memberListCount)+'</a></td>';
+                                                        }else{
+                                                            html+='<td>'+replace(v.memberListCount)+'</td>';
+                                                        }
+                                                        if (v.areaCount>0) {
+                                                            html+='<td><a href="campuslist.html?NO='+v.id+'"  target="_blank">'+replace(v.areaCount)+'</a></td>';
+                                                        }else{
+                                                            html+='<td>'+replace(v.areaCount)+'</td>';
+                                                        }
+                                                       
+                                                       if(v.onLineCount>0){
+                                                            html+='<td><a href="online.html?NO='+v.id+'"  target="_blank">'+replace(v.onLineCount)+'</a></td>';
+                                                       }else{
+                                                            html+='<td>'+replace(v.onLineCount)+'</td>';
+                                                       }
+                                                       html+='<td>¥ '+replace(v.onLinePeriodicalPriceCount)+'</td>';
+                                                        if(v.offLineCount>0){
+                                                            html+='<td><a href="offlineresources.html?NO='+v.id+'"  target="_blank">'+replace(v.offLineCount)+'</a></td>';
+                                                       }else{
+                                                            html+='<td>'+replace(v.offLineCount)+'</td>';
+                                                       }
+                                                       
+                                                       html+='<td>¥ '+replace(v.offLinePeriodicalPriceCount)+'</td>';
+                                                       html+='<td>'+replace(v.openStatus)+'</td>';
+                                                       html+='</tr>';
+                                         })
+                                         if(_this.data.pageIndex>1){
+                                                $('.table>tbody').append(html)
+                                         }else{
+                                                $('.table>tbody').html(html)
+                                         }
+                                   }else{
+                                        Prompt.show('没有数据！');
+                                   }
                         }
                    });   
              }
