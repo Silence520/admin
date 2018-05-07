@@ -16,12 +16,12 @@ $(function() {
                 Prompt.show('请选择上传文件！');
                 return false;
             }
-            if(first==''){
-                Prompt.show('请选择上传文件类型！');
-                return false;
-            }
+            // if(first==''){
+            //     Prompt.show('请选择上传文件类型！');
+            //     return false;
+            // }
             data.append('file', addFile);
-            data.append('type', first);
+            // data.append('type', first);
             app.postfile(app.url.api_base + "schools/main/importExcel", data, function(req) {
                    Prompt.show(req.message);
             });
