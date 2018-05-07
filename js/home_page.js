@@ -199,7 +199,7 @@ $(function() {
              }
              //获取数据 
              function laadData() {
-                  _this.data.city != ''? $('.export-btn').show() : $('.export-btn').hide();
+                  // _this.data.city != ''? $('.export-btn').show() : $('.export-btn').hide();
                   $('.checkall').attr("checked", false);
                   var data={
                         'pageNo':   _this.data.pageIndex,

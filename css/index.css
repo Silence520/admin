@@ -127,8 +127,8 @@ a {
     background-size: 100%;
     cursor: pointer;
 }
-.export-btn{
-    display: none;
+.table  input{
+    cursor: pointer;
 }
 /**import**/
 .btn-primary {
