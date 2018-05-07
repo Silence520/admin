@@ -195,6 +195,9 @@ a {
 .text-center.col-sm-12{
     margin-top: 20px;
 }
+#downhref{
+    cursor: pointer;
+}
 
 /**export**/
 
