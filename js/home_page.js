@@ -253,6 +253,7 @@ $(function() {
                                                 $('.table>tbody').html(html)
                                          }
                                    }else{
+                                         $('.table>tbody').html('');
                                         Prompt.show('没有数据！');
                                    }
                         }
