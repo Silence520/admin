@@ -52,6 +52,11 @@ $(function() {
 
         })
 
+        //导出报表
+        $(document).on('click', '.exportAll-btn', function() {            
+           window.open(app.url.api_base + "schools/main/exportSchoolResult?provinceId="+_this.data.province+"&cityId="+_this.data.city+"&districtId="+_this.data.area)
+        })
+
         //mode loaddata
         $(document).on('click', '.add-more-data span', function() {
               _this.data.pageIndex+=1;
@@ -247,13 +252,16 @@ $(function() {
                                                        html+='<td>'+replace(v.openStatus)+'</td>';
                                                        html+='</tr>';
                                          })
+                                         $('.add-more-data').show()
+                                         $('.exportAll-btn').removeAttr("disabled");
                                          if(_this.data.pageIndex>1){
                                                 $('.table>tbody').append(html)
                                          }else{
                                                 $('.table>tbody').html(html)
                                          }
                                    }else{
-                                         $('.table>tbody').html('');
+                                        $('.table>tbody').html('');
+                                        $('.exportAll-btn').attr("disabled", 'disabled');
                                         Prompt.show('没有数据！');
                                    }
                         }

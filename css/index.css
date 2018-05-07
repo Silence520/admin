@@ -26,13 +26,22 @@ a {
 }
 
 .Ileft .title {
-    height: 64px;
+    line-height:27px;
     margin: 0;
-    background: url('../images/logo1.jpg') no-repeat;
+    font-family:Arial;
+    /* background: url('../images/logo1.jpg') no-repeat; */
     background-position: center;
     background-size: 100%;
+    color: #fff;
+    font-size: 18px;
+    text-align: center
 }
-
+.Ileft .title:first-child{
+    margin-top: 10px;
+}
+.Ileft .title.marbot{
+    margin-bottom: 20px;
+}
 .Ileft .margintop {
     text-align: center;
 }
@@ -200,6 +209,7 @@ a {
 
 .add-more-data {
     margin-top: 20px;
+    display: none;
 }
 
 .add-more-data  span{
@@ -235,11 +245,17 @@ a {
     background: #fff;
 }
 
-.searchbox .col-md-2 {
+.searchbox .col-md-3 {
     margin-top: 3px;
     padding-left: 0px;
 }
-
+.searchbox .col-md-5 {
+      margin-top: 3px;
+      text-align: left;
+}
+.searchbox .col-md-5 button{
+    margin-right: 20px;
+}
 .searchbox .col-md-6,
 .searchbox .col-md-1,
 .searchbox .col-md-6 h4 {
