@@ -26,12 +26,12 @@ $(function() {
         //导出报表
         $(document).on('click', '.export-btn', function() {
             var ArrId=eachListId();
-             if(_this.data.city==''){
-                  Prompt.show('导入数据请选择到城市!');
-                  return false;
-              }
+             // if(_this.data.city==''){
+             //      Prompt.show('导入数据请选择到城市!');
+             //      return false;
+             //  }
              if(ArrId==''){
-                  Prompt.show('请选择学校!');
+                  Prompt.show('请选择要导出的学校!');
                   return false;
               }
              var data = {
@@ -260,7 +260,9 @@ $(function() {
                                                 $('.table>tbody').html(html)
                                          }
                                    }else{
-                                        $('.table>tbody').html('');
+                                        if(_this.data.pageIndex<=1){
+                                            $('.table>tbody').html('');
+                                          }
                                         $('.exportAll-btn').attr("disabled", 'disabled');
                                         Prompt.show('没有数据！');
                                    }
