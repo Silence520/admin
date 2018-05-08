@@ -34,8 +34,8 @@ $(function() {
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
+                            $('.schoolname').html(req.data[0].schoolname!='null' ? req.data[0].schoolname+' ：线下广告点位详情表':' '   );
                             var html = '';
-                           
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
                                    html+='<td>'+ (i+1) +'</td>';

@@ -26,10 +26,6 @@ $(function() {
         //导出报表
         $(document).on('click', '.export-btn', function() {
             var ArrId=eachListId();
-             // if(_this.data.city==''){
-             //      Prompt.show('导入数据请选择到城市!');
-             //      return false;
-             //  }
              if(ArrId==''){
                   Prompt.show('请选择要导出的学校!');
                   return false;
@@ -40,16 +36,7 @@ $(function() {
                           'districtId':_this.data.area,
                           'Ids':ArrId
             };
-            window.open(app.url.api_base + "schools/main/exportSchoolResult?provinceId="+_this.data.province+"&cityId="+_this.data.city+"&districtId="+_this.data.area+"Ids="+ArrId)
-            // app.posttoken(app.url.api_base + "schools/main/exportSchoolResult", data,
-            //                 function(req) {
-            //                    if (req.code == 0) {
-            //                    } else {
-            //                       window.open(app.url.api_base + "schools/main/exportSchoolResult")
-            //                        // Prompt.show(req.message);
-            //                    }
-            // });
-
+            window.open(app.url.api_base + "schools/main/exportSchoolResult?provinceId="+_this.data.province+"&cityId="+_this.data.city+"&districtId="+_this.data.area+"Ids="+ArrId);
         })
 
         //导出报表
@@ -67,7 +54,9 @@ $(function() {
         $(document).on('change','#country',function(){
                 $('#province option').remove();
                 $('#city option').remove();
+                $('#city').html('<option value="">请选择城市</option>');
                 $('#area option').remove();
+                $('#area').html('<option value="">请选择行政区(县)</option>');
                 var num = $('#country').val();
                 _this.data.country=num;
                 _this.data.province='';
@@ -79,6 +68,7 @@ $(function() {
         $(document).on('change', '#province', function() {
                 $('#city option').remove();
                 $('#area option').remove();
+                $('#area').html('<option value="">请选择行政区(县)</option>');
                 var num = $('#province').val();
                 _this.data.province=num;
                 _this.data.city='';
@@ -219,10 +209,11 @@ $(function() {
                           if(req.code==0){
                                var html='';
                                if(req.data.length>0){
+                                          var listno = (_this.data.pageIndex-1)*10;
                                          $.each(req.data,function(i,v){
                                                        html+='<tr dataId='+v.id+'>';
                                                        html+='<td> <input type="checkbox" ></td>';
-                                                       html+='<td>'+(i+1)+'</td>';
+                                                       html+='<td>'+(i+1+listno)+'</td>';
                                                        html+='<td>'+replace(v.area)+'</td>';
                                                        html+='<td>'+replace(v.schoolName)+'</td>';
                                                        if (v.memberListCount>0) {

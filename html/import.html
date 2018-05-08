@@ -155,8 +155,11 @@ $(function() {
     //下载文件模板
     $(document).on('click', '#downhref', function() {
          var data=$(this).attr('data-href');
+
          if(data){
-          window.open(data);
+                 window.open(data);
+         }else{
+             Prompt.show('请选择模板类型！');
          }
     });
 
