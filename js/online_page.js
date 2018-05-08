@@ -33,22 +33,20 @@ $(function() {
                             $.each(req.data, function(i, v) {
                                     html+='<tr>';
                                    html+='<td>'+(i+1)+'</td>';
-                                   if(v.channeltype=='微博'){
+                                   if(v.channeltype=='2'){
                                      html+='<td><a href="weibo.html?NO='+_this.data.Id+'&&Name='+v.id+'">'+replace(v.channelname)+'</a></td>';
-                                   }else if(v.channeltype=='APP'){
+                                   }else if(v.channeltype=='1'){
                                     html+='<td><a href="advertisement.html?NO='+_this.data.Id+'&&Name='+v.id+'">'+replace(v.channelname)+'</a></td>';
                                    }else{
                                     html+='<td><a href="weixin.html?NO='+_this.data.Id+'&&Name='+v.id+'">'+replace(v.channelname)+'</a></td>';
                                    }
-                                   
-                                   html+='<td>'+replace(v.channeltype)+'</td>';
+                                   html+='<td>'+replace(v.channeltypeStr)+'</td>';
                                    html+='<td>'+replace(v.fans)+'</td>';
                                    html+='<td>'+replace(v.daily)+'</td>';
                                    html+='<td>'+replace(v.isofficial)+'</td>';
-                                   // html+='<td>'+replace(v.periodicalprice)+'</td>';
-                                   // html+='<td>'+replace(v.to4A)+'</td>';
-                                   // html+='<td>'+replace(v.toguest)+'</td>';
-                                   html+="<td></td><td></td><td></td>"
+                                   html+='<td>'+replace(v.periodicalprice)+'</td>';
+                                   html+='<td>'+replace(v.to4A)+'</td>';
+                                   html+='<td>'+replace(v.toguest)+'</td>';
                                    html+='<td>'+replace(v.remarks)+'</td>';
                                    html+='</tr>';
                             })

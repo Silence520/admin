@@ -19,7 +19,7 @@ $(function() {
         //获取数据 
         function laadData() {
            var data = {
-                'schoolAreaId':_this.data.Id,
+                'schoolId':_this.data.Id,
                 // 'pageNo':   _this.data.pageIndex,
                 // 'everyPage': _this.data.everyPage,       
             };

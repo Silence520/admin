@@ -43,12 +43,12 @@ $(function() {
                                    html+='<td>'+replace( v.adtype )+'</td>';
                                    html+='<td>'+replace( v.channellocal )+'</td>';
                                    html+='<td>'+replace( v.localexp )+'</td>';
-                                   html+='<td>'+replace( v.maplink )+'</td>';
+                                   html+='<td><a href="'+v.maplink+'">'+replace( v.maplink )+'</a></td>';
                                    html+='<td>'+replace( v.location )+'</td>';
                                    html+='<td>'+replace( v.publishcycle )+'</td>';
                                    html+='<td>'+replace( v.datearea )+'</td>';
                                    html+='<td>'+replace( v.publishcount )+'</td>';
-                                   html+='<td>'+replace( v.adimgexample )+'</td>';
+                                   html+='<td><a href="'+v.adimgexample+'">'+replace( v.adimgexample )+'</a></td>';
                                    html+='<td>'+replace( v.adquality )+'</td>';
                                    html+='<td>'+replace( v.adsize )+'</td>';
                                    html+='<td>'+replace( v.adremark )+'</td>';

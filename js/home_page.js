@@ -19,6 +19,8 @@ $(function() {
 
         //查询
         $(document).on('click', '.sea-btn', function() {
+              _this.data.pageIndex=1;
+              $('.add-more-data').hide();
             laadData();
         })
 

@@ -35,26 +35,24 @@ $(function() {
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
-                            $('.schoolname').html(req.data[0].schoolname!='null' ? req.data[0].schoolname+' 微博刊例价表':'');
+                            // $('.schoolname').html(req.data[0].schoolname!='null' ? req.data[0].schoolname+' 微博刊例价表':'');
+                            $('.schoolname').html(' 微博刊例价表');
                             var html = '';
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
                                    html+='<td>'+ (i+1) +'</td>';
                                    html+='<td>'+ replace(v.weiboname )+'</td>';
                                    html+='<td>'+ replace(v.supplier )+'</td>';
-                                   html+='<td></td>';
+                                   html+='<td>'+ replace(v.schoolname )+'</td>';
+                                   html+='<td>'+ replace(v.accounttype )+'</td>';
+                                   html+='<td>'+ replace(v.authinfo )+'</td>';
+                                   html+='<td><a href="'+v.weibolink+'">'+ replace(v.weibolink )+'</a></td>';
+                                   html+='<td>'+ replace(v.url )+'</td>';
                                    html+='<td>'+ replace(v.showtimes )+'</td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
-                                   html+='<td>'+ replace(v.adimgexample )+'</td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
-                                   html+='<td></td>';
+                                   html+='<td><a href="'+v.adimgexample+'">'+ replace(v.adimgexample )+'</a></td>';
+                                   
                                    html+='<td>'+ replace(v.periodicalprice )+'</td>';
-                                   html+='<td></td>';
+                                   html+='<td>'+ replace(v.To4A )+'</td>';
                                    html+='<td>'+ replace(v.toguest )+'</td>';
                                    html+='<td>'+ replace(v.baseprice )+'</td>';
                                    html+='<td>'+ replace(v.relayperiodicalprice )+'</td>';

@@ -35,7 +35,8 @@ $(function() {
                 function(req) {
                     if (req.code == 0) {
                         if (req.data != undefined && req.data.length > 0) {
-                            $('.schoolname').html(_this.data.Id+' APP广告点位价目表');
+                            // $('.schoolname').html(_this.data.Id+' APP广告点位价目表');
+                            $('.schoolname').html('APP广告点位价目表');
                             var html = '';
                             $.each(req.data, function(i, v) {
                                    html+='<tr>';
@@ -46,7 +47,7 @@ $(function() {
                                    html+='<td>'+ replace(v.activity) +'</td>';
                                    html+='<td>'+ replace(v.showtype) +'</td>';
                                    html+='<td>'+ replace(v.interact) +'</td>';
-                                   html+='<td>'+ replace(v.adimgexample) +'</td>';
+                                   html+='<td><a href="'+v.adimgexample+'">'+ replace(v.adimgexample) +'</a></td>';
                                    html+='<td>'+ replace(v.texts) +'</td>';
                                    html+='<td>'+ replace(v.imgformat) +'</td>';
                                    html+='<td>'+ replace(v.imgsize) +'</td>';
@@ -61,6 +62,8 @@ $(function() {
                                    html+='<td>'+ replace(v.separeaTo4A) +'</td>';
                                    html+='<td>'+ replace(v.separeatoguest) +'</td>';
                                    html+='<td>'+ replace(v.separeabaseprice) +'</td>';
+                                   html+='<td>'+ new Date(replace(v.bizdateStart)).Format('yyyy-MM-dd') +'</td>';
+                                   html+='<td>'+new Date(replace(v.bizdateEnd)).Format('yyyy-MM-dd')  +'</td>';
                                    html+='</tr>';
                             })
                             $('.table>tbody').html(html)
