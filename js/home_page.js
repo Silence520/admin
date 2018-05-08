@@ -34,7 +34,7 @@ $(function() {
                           'provinceId':_this.data.province,
                           'cityId':_this.data.city,
                           'districtId':_this.data.area,
-                          'Ids':ArrId
+                          'ids':ArrId
             };
             window.open(app.url.api_base + "schools/main/exportSchoolResult?provinceId="+_this.data.province+"&cityId="+_this.data.city+"&districtId="+_this.data.area+"Ids="+ArrId);
         })
